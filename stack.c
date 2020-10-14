@@ -11,7 +11,7 @@
  * @param s
  */
 void init_stack(Stack *s){
-    s->index=0;
+    s->data[index]=-1;
 }
 
 /**
@@ -21,7 +21,8 @@ void init_stack(Stack *s){
  * @param value
  */
 void push(Stack *s, float value) {
-    s[(s->index)++] = value;
+    s->index++;
+    s->data[s->index] = value;
 }
 
 /**
@@ -31,7 +32,8 @@ void push(Stack *s, float value) {
  * @return 
  */
 float pop(Stack *s){
-    return s[--(s->index)];
+    s->index--;
+    return s->data[s->index];
 }
 
 /**
@@ -40,7 +42,7 @@ float pop(Stack *s){
  * @return 
  */
 bool is_stack_empty(Stack *s){
-    return s->index == size ? true : false;
+    return s->data[s->index] == size ? true : false;
 }
 
 /**
@@ -50,7 +52,7 @@ bool is_stack_empty(Stack *s){
  * @return 
  */
 float peek(Stack *s){
-    return s[s->index];
+    return s->data[s->index];
 }
 
 /**
@@ -59,7 +61,9 @@ float peek(Stack *s){
  * @param s
  */
 void dup(Stack *s){
-    s[(s->index)++] = s[s->index];
+    float temp = s->data[s->index];
+    s->index++;
+    s->data[s->index] = temp;
 }
 
 /**
@@ -68,9 +72,9 @@ void dup(Stack *s){
  * @param s
  */
 void swap(Stack *s){
-    int temp = s[s->index];
-    s[s->index] = s[s->index-1];
-    s[s->index-1] = temp;
+    int temp = s->data[s->index];
+    s->data[s->index] = s->data[s->index-1];
+    s->data[s->index-1] = temp;
 }
 
 /**
@@ -79,5 +83,5 @@ void swap(Stack *s){
  * @param s
  */
 void clear(Stack *s){
-    s->index=-1;
+    s->data[index]=-1;
 }
