@@ -33,8 +33,6 @@ float test(int a) {
  * 
  */
 int main(int argc, char** argv) {
-    Stack stack;
-    stack_init(stack);
 
     return (EXIT_SUCCESS);
 }

@@ -11,7 +11,7 @@
  * @param s
  */
 void init_stack(Stack *s){
-    s->data[index]=-1;
+    s->index=-1;
 }
 
 /**
@@ -29,11 +29,12 @@ void push(Stack *s, float value) {
  * Fonction enlève le premier élément du stack
  * 
  * @param s
- * @return 
+ * @return value
  */
 float pop(Stack *s){
+    float value = s->data[s->index];
     s->index--;
-    return s->data[s->index];
+    return value;
 }
 
 /**
@@ -42,7 +43,13 @@ float pop(Stack *s){
  * @return 
  */
 bool is_stack_empty(Stack *s){
-    return s->data[s->index] == size ? true : false;
+    if (s->index = -1)
+    {
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 /**
@@ -61,9 +68,8 @@ float peek(Stack *s){
  * @param s
  */
 void dup(Stack *s){
-    float temp = s->data[s->index];
-    s->index++;
-    s->data[s->index] = temp;
+    float value = s->data[s->index];
+    push(&s , value);
 }
 
 /**
@@ -72,9 +78,12 @@ void dup(Stack *s){
  * @param s
  */
 void swap(Stack *s){
-    int temp = s->data[s->index];
-    s->data[s->index] = s->data[s->index-1];
-    s->data[s->index-1] = temp;
+    float value1 = s->data[s->index];
+    pop(s);
+    float value2 = s->data[s->index];
+    pop(s);
+    push(s, value1);
+    push(s, value2);
 }
 
 /**
@@ -83,5 +92,5 @@ void swap(Stack *s){
  * @param s
  */
 void clear(Stack *s){
-    s->data[index]=-1;
+    init_stack(s);
 }
