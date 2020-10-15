@@ -19,7 +19,6 @@ void insert_at(Array_list *l, int position, float value){
         l->data[i+1]=l->data[i];
         l->data[i]=temp;
     }
-    
     l->index++;
     l->data[position]=value;
 }
@@ -31,7 +30,7 @@ void add(Array_list *l, float value){
 
 float remove_at(Array_list *l, int position){
     int temp;
-    for(int i=position; i>=l->index; i++){
+    for(int i=position; i<=(l->index); i++){
         temp = l->data[i+1];
         l->data[i+1]=l->data[i];
         l->data[i]=temp;

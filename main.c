@@ -18,6 +18,7 @@
 
 #include "stack.h"
 #include "queue.h"
+#include "array_list.h"
 
 //comment on arrete un programme avec un message d'erreur visible
 
@@ -78,13 +79,23 @@ void testQueue() {
 void testArray(){
     Array_list l;
     init_array_list(&l);
-    
+    add(&l,9);
+    assert(9 == l.data[0]);
+    add(&l,5);
+    assert(get_at(&l,0)== l.data[0]);
+    add(&l,6);
+    insert_at(&l,1,8);
+    assert(8 == l.data[1]);
+    assert(5 == l.data[2]);
+    assert(6 == l.data[3]);
+    remove_at(&l,1);
+    assert(5== l.data[1]);
 }
 
 int main(int argc, char** argv) {
     testStack();
     testQueue();
-
+    testArray();
 
     return (EXIT_SUCCESS);
 }
