@@ -9,7 +9,7 @@
  */
 
 /**
- * Initialisation de la queue
+ * Fonction initialisation de la queue
  * 
  * @param q
  */
@@ -29,7 +29,7 @@ void enqueue(Queue *q, float value) {
 }
 
 /**
- * Enlever enlever le premier élément de la queue
+ * Fonction  enlever enlever le premier élément de la queue
  * 
  * @param q
  * @return 
@@ -40,16 +40,32 @@ float dequeue(Queue *q) {
     return value;
 }
 
+/**
+ * Fonction de vérification du remplissage ou non de la queue
+ * 
+ * @param q
+ * @return 
+ */
 bool is_queue_empty(Queue *q) {
     if (q->index == -1) {
         return true;
     } else return false;
 }
 
+/**
+ * Fonction recuperation de la derniere valeur entrée, celle sur le dessus du tas
+ * 
+ * @param q
+ * @return 
+ */
 float front(Queue *q) {
     return q->data[q->index];
 }
 
+/**
+ * Fonction fonction de nettoyage d'une queue
+ * @param q
+ */
 void clear_queue(Queue *q) {
     init_queue(q);
 }

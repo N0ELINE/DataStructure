@@ -11,8 +11,8 @@
  * 
  * @param s
  */
-void init_stack(Stack *s){
-    s->index=-1;
+void init_stack(Stack *s) {
+    s->index = -1;
 }
 
 /**
@@ -32,7 +32,7 @@ void push(Stack *s, float value) {
  * @param s
  * @return value
  */
-float pop(Stack *s){
+float pop(Stack *s) {
     float value = s->data[s->index];
     s->index--;
     return value;
@@ -43,12 +43,10 @@ float pop(Stack *s){
  * @param s
  * @return 
  */
-bool is_stack_empty(Stack *s){
-    if (-1 == s->index )
-    {
+bool is_stack_empty(Stack *s) {
+    if (-1 == s->index) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
@@ -59,7 +57,7 @@ bool is_stack_empty(Stack *s){
  * @param s
  * @return 
  */
-float peek(Stack *s){
+float peek(Stack *s) {
     return s->data[s->index];
 }
 
@@ -68,9 +66,9 @@ float peek(Stack *s){
  * 
  * @param s
  */
-void dup(Stack *s){
+void dup(Stack *s) {
     float value = s->data[s->index];
-    push(s , value);
+    push(s, value);
 }
 
 /**
@@ -78,7 +76,7 @@ void dup(Stack *s){
  * 
  * @param s
  */
-void swap(Stack *s){
+void swap(Stack *s) {
     float value1 = s->data[s->index];
     pop(s);
     float value2 = s->data[s->index];
@@ -92,6 +90,6 @@ void swap(Stack *s){
  * 
  * @param s
  */
-void clear_stack(Stack *s){
+void clear_stack(Stack *s) {
     init_stack(s);
 }
