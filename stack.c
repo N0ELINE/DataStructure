@@ -92,6 +92,6 @@ void swap(Stack *s){
  * 
  * @param s
  */
-void clear(Stack *s){
+void clear_stack(Stack *s){
     init_stack(s);
 }

@@ -32,7 +32,6 @@ float test(int a) {
 }
 
 void testStack() {
-    
     Stack s;
     init_stack(&s);
     assert(true == is_stack_empty(&s));
@@ -54,9 +53,8 @@ void testStack() {
     swap(&s);
     assert(47==s.data[s.index]);
     assert(49==s.data[(s.index)-1]);
-    clear(&s);
+    clear_stack(&s);
     assert(true == is_stack_empty(&s));
-        
 }
 
 void testQueue() {
@@ -77,9 +75,12 @@ void testQueue() {
     assert(true == is_queue_empty(&q));
 }
 
-/*
- * 
- */
+void testArray(){
+    Array_list l;
+    init_array_list(&l);
+    
+}
+
 int main(int argc, char** argv) {
     testStack();
     testQueue();
