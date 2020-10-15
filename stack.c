@@ -8,6 +8,7 @@
 
 /**
  * Fonction initialisation stack pointeur
+ * 
  * @param s
  */
 void init_stack(Stack *s){
@@ -43,7 +44,7 @@ float pop(Stack *s){
  * @return 
  */
 bool is_stack_empty(Stack *s){
-    if (s->index = -1)
+    if (-1 == s->index )
     {
         return true;
     }
@@ -69,7 +70,7 @@ float peek(Stack *s){
  */
 void dup(Stack *s){
     float value = s->data[s->index];
-    push(&s , value);
+    push(s , value);
 }
 
 /**

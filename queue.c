@@ -1,31 +1,43 @@
 
 #include <stdbool.h>
+#include "queue.h"
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-void init_queue(Queue *s) {
-    s->index = -1;
+
+/**
+ * Initialisation de la queue
+ * 
+ * @param q
+ */
+void init_queue(Queue *q) {
+    q->index = -1;
 }
 
+/**
+ * Fonction d'ajout d'un élément dans la queue
+ * 
+ * @param q
+ * @param value
+ */
 void enqueue(Queue *q, float value) {
     q->index++;
     q->data[q->index] = value;
 }
 
+/**
+ * Enlever enlever le premier élément de la queue
+ * 
+ * @param q
+ * @return 
+ */
 float dequeue(Queue *q) {
-    float donnee = q->data[0];
-    float temp;
-    float temp2;
-    while (q->index >= 0) {
-        temp = q->data[q->index - 1];
-        q->data[q->index - 1] = q->data[q->index];
-        q->index--;
-
-    }
-    return donnee;
+    float value = q->data[q->index];
+    q->index--;
+    return value;
 }
 
 bool is_queue_empty(Queue *q) {
@@ -35,9 +47,9 @@ bool is_queue_empty(Queue *q) {
 }
 
 float front(Queue *q) {
-    return q->data[0];
+    return q->data[q->index];
 }
 
-void clear(Queue *q) {
+void clear_queue(Queue *q) {
     init_queue(q);
 }
